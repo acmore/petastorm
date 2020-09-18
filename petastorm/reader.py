@@ -281,7 +281,7 @@ def make_batch_reader(dataset_url_or_urls,
             s3_config_kwargs=s3_config_kwargs
         )
     else:
-        url_list = [dataset_url_or_urls] if isinstance(dataset_url_or_urls, list) else dataset_url_or_urls
+        url_list = [dataset_url_or_urls] if not isinstance(dataset_url_or_urls, list) else dataset_url_or_urls
         dataset_path_or_paths = [get_dataset_path(urlparse(url)) for url in url_list]
 
     try:
